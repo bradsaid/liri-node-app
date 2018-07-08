@@ -24,15 +24,18 @@ switch (action) {
       break;
 };
 
+function tweet() {
+  const twit = require("./twitter.js");
+}
+
+function spotify() {
+  const spot = require("./spotify.js");
+}
+
 function movie() {
     const omdbd = require("./omdb.js");
 }
-function tweet() {
-    const twit = require("./twitter.js");
-}
-function spotify() {
-    const spot = require("./spotify.js");
-}
+
 function dowhat() {
   const dowhat = require("./dowhatitsays.js");
 }

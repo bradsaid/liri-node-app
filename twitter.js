@@ -13,7 +13,7 @@ var params = {screen_name: 'bradsaid', count: 20};
 client.get('statuses/user_timeline', params, function(error, tweets, response) {
   if (!error) {
     for (let i = 0; i < tweets.length; i++) {
-    console.log(tweets[i].text + tweets[i].created_at);
+    console.log("Tweet: " + tweets[i].text + "\nTweeted on: " + tweets[i].created_at.substring(0, 19));
     }
   }
 });

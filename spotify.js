@@ -8,6 +8,7 @@ var client = new Spotify({
 
 let nodeArgs = process.argv;
 let songName = "";
+let type = "track";
 
 for (let i = 3; i < nodeArgs.length; i++) {
   if (i > 2 && i < nodeArgs.length) {
@@ -18,7 +19,12 @@ for (let i = 3; i < nodeArgs.length; i++) {
   }
 }
 
-client.search({ type: 'track', query: songName, limit: 1 }, function(err, data) {
+function song() {
+  if (songName === "") {
+    songName = "The Sign";
+    //type = "artist" 
+  } 
+  client.search({ type: type, query: songName, limit: 1 }, function(err, data) {
     if (err) {
       return console.log('Error occurred: ' + err);
     }
@@ -28,8 +34,10 @@ client.search({ type: 'track', query: songName, limit: 1 }, function(err, data) 
       console.log(data.tracks.items[i].preview_url)
       console.log(data.tracks.items[i].album.name)
       }
-    //console.log(data.tracks.items)
   });
+};
+
+song();
 
 
 
